@@ -1,8 +1,8 @@
-import CarModel from "@/models/Car-model";
-import dbConnect from "@/service/mongo";
-import Link from "next/link";
-import { FaArrowLeft, FaCar } from "react-icons/fa6";
-import Logout from "./Logout";
+import CarModel from '@/models/Car-model';
+import dbConnect from '@/service/mongo';
+import Link from 'next/link';
+import { FaArrowLeft, FaCar } from 'react-icons/fa6';
+import Logout from './Logout';
 export default async function SoldCarsPage() {
   await dbConnect();
 
@@ -47,13 +47,9 @@ export default async function SoldCarsPage() {
               </thead>
               <tbody className="divide-y divide-white/5">
                 {soldCars.map((car) => {
-                  const profit =
-                    (car.sellingPrice || 0) - (car.buyingPrice || 0);
+                  const profit = (car.sellingPrice || 0) - (car.buyingPrice || 0);
                   return (
-                    <tr
-                      key={car._id}
-                      className="hover:bg-white/[0.01] transition-all group"
-                    >
+                    <tr key={car._id} className="hover:bg-white/[0.01] transition-all group">
                       {/* Vehicle */}
                       <td className="px-6 py-6">
                         <div className="flex items-center gap-3">
@@ -71,12 +67,6 @@ export default async function SoldCarsPage() {
                         </div>
                       </td>
 
-                      {/* Date */}
-                      {/* <td className="px-6 py-6 text-xl font-mono text-gray-400 font-bold">
-                        {car.soldAt
-                          ? new Date(car.soldAt).toLocaleDateString("en-GB")
-                          : "N/A"}
-                      </td> */}
                       <td className="px-6 py-6 font-mono">
                         {car.soldAt ? (
                           <div className="flex flex-col gap-1">
@@ -86,14 +76,11 @@ export default async function SoldCarsPage() {
                             </span>
                             {/* Date Text */}
                             <span className="text-xl font-bold text-gray-200">
-                              {new Date(car.soldAt).toLocaleDateString(
-                                "en-GB",
-                                {
-                                  day: "2-digit",
-                                  month: "short",
-                                  year: "numeric",
-                                },
-                              )}
+                              {new Date(car.soldAt).toLocaleDateString('en-GB', {
+                                day: '2-digit',
+                                month: 'short',
+                                year: 'numeric',
+                              })}
                             </span>
                           </div>
                         ) : (
@@ -135,7 +122,7 @@ export default async function SoldCarsPage() {
                       <td className="px-6 py-6 text-right">
                         <span
                           className={`text-xl font-black font-mono ${
-                            profit >= 0 ? "text-green-500" : "text-red-500"
+                            profit >= 0 ? 'text-green-500' : 'text-red-500'
                           }`}
                         >
                           {profit.toLocaleString()}
@@ -166,14 +153,12 @@ export default async function SoldCarsPage() {
               <div className="flex items-baseline gap-2 justify-end">
                 <span
                   className={`text-4xl font-black font-mono tracking-tighter ${
-                    totalProfit >= 0 ? "text-green-500" : "text-red-500"
+                    totalProfit >= 0 ? 'text-green-500' : 'text-red-500'
                   }`}
                 >
                   {totalProfit.toLocaleString()}
                 </span>
-                <span className="text-xs font-black text-gray-600 uppercase">
-                  BDT
-                </span>
+                <span className="text-xs font-black text-gray-600 uppercase">BDT</span>
               </div>
             </div>
           </div>
@@ -181,7 +166,7 @@ export default async function SoldCarsPage() {
       </div>
 
       <div className="flex justify-center items-center text-center text-red-500 rounded-md pt-10">
-        {" "}
+        {' '}
         <Logout />
       </div>
     </div>

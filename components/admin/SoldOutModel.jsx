@@ -1,11 +1,5 @@
-"use client";
-import {
-  FaLock,
-  FaMoneyBillWave,
-  FaPhone,
-  FaUser,
-  FaXmark,
-} from "react-icons/fa6";
+'use client';
+import { FaLock, FaMoneyBillWave, FaPhone, FaUser, FaXmark } from 'react-icons/fa6';
 
 const SoldModal = ({ car, onClose, onConfirm }) => {
   const handleSubmit = (e) => {
@@ -13,11 +7,11 @@ const SoldModal = ({ car, onClose, onConfirm }) => {
     const formData = new FormData(e.target);
 
     const data = {
-      buyingPrice: formData.get("buyingPrice"),
-      sellingPrice: formData.get("sellingPrice"),
-      customerName: formData.get("customerName"),
-      customerMobile: formData.get("customerMobile"),
-      password: formData.get("password"),
+      buyingPrice: formData.get('buyingPrice'),
+      sellingPrice: formData.get('sellingPrice'),
+      customerName: formData.get('customerName'),
+      customerMobile: formData.get('customerMobile'),
+      password: formData.get('password'),
     };
 
     onConfirm(car._id, data);

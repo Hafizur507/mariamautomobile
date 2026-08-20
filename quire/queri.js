@@ -49,25 +49,25 @@
 // }
 // import Review from "@/models/Review-model";
 
-import CarModel from "@/models/Car-model";
-import dbConnect from "@/service/mongo";
+import CarModel from '@/models/Car-model';
+import dbConnect from '@/service/mongo';
 
-import Brand from "@/models/Brand-model";
-import Category from "@/models/category-model";
-import Review from "@/models/Review-model";
+import Brand from '@/models/Brand-model';
+import Category from '@/models/category-model';
+import Review from '@/models/Review-model';
 
 export async function getCar() {
   await dbConnect();
 
   try {
     const cars = await CarModel.find({ isSold: false })
-      .populate({ path: "brand", model: Brand })
-      .populate({ path: "category", model: Category })
+      .populate({ path: 'brand', model: Brand })
+      .populate({ path: 'category', model: Category })
       .lean();
 
     return JSON.parse(JSON.stringify(cars));
   } catch (error) {
-    console.error("Error in getCar:", error);
+    console.error('Error in getCar:', error);
     return [];
   }
 }
@@ -77,13 +77,13 @@ export async function getSoldOut() {
 
   try {
     const cars = await CarModel.find({})
-      .populate({ path: "brand", model: Brand })
-      .populate({ path: "category", model: Category })
+      .populate({ path: 'brand', model: Brand })
+      .populate({ path: 'category', model: Category })
       .lean();
 
     return JSON.parse(JSON.stringify(cars));
   } catch (error) {
-    console.error("Error in getCar:", error);
+    console.error('Error in getCar:', error);
     return [];
   }
 }
@@ -94,6 +94,6 @@ export async function getReviw() {
     const reviews = JSON.parse(JSON.stringify(review));
     return reviews;
   } catch (er) {
-    return { er: "failt fetch" };
+    return { er: 'failt fetch' };
   }
 }

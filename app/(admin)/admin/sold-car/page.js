@@ -1,4 +1,4 @@
-import SoldOutPage from "@/components/admin/SlodOutPage";
+import SoldOutPage from '@/components/admin/SlodOutPage';
 
 export default function SoldOutCar() {
   return (

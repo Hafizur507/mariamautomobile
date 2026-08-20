@@ -1,12 +1,6 @@
-"use client";
-import { createcar } from "@/app/(home)/action/actions";
-export default function AddCarModal({
-  brands,
-  categories,
-  initialData,
-  onClose,
-  onSuccess,
-}) {
+'use client';
+import { createcar } from '@/app/(home)/action/actions';
+export default function AddCarModal({ brands, categories, initialData, onClose, onSuccess }) {
   const isEditMode = !!initialData;
 
   return (
@@ -26,8 +20,7 @@ export default function AddCarModal({
           </button>
 
           <h1 className="text-3xl font-black mb-8 text-center uppercase tracking-tighter">
-            {isEditMode ? "Update" : "Save"}{" "}
-            <span className="text-red-600">Inventory</span>
+            {isEditMode ? 'Update' : 'Save'} <span className="text-red-600">Inventory</span>
           </h1>
 
           <form
@@ -39,32 +32,24 @@ export default function AddCarModal({
             }}
           >
             {initialData?._id && (
-              <input
-                type="hidden"
-                name="carId"
-                value={initialData._id.toString()}
-              />
+              <input type="hidden" name="carId" value={initialData._id.toString()} />
             )}
 
             {/* Basic Info */}
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Car Name
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Car Name</label>
               <input
                 name="name"
-                defaultValue={initialData?.name || ""}
+                defaultValue={initialData?.name || ''}
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
                 required
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Price (BDT)
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Price (BDT)</label>
               <input
-                defaultValue={initialData?.price || ""}
+                defaultValue={initialData?.price || ''}
                 name="price"
                 type="number"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -73,11 +58,9 @@ export default function AddCarModal({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Tag
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Tag</label>
               <input
-                defaultValue={initialData?.tag || ""}
+                defaultValue={initialData?.tag || ''}
                 name="tag"
                 placeholder="e.g. New Arrival"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -86,11 +69,9 @@ export default function AddCarModal({
 
             {/* Technical Specs */}
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Engine
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Engine</label>
               <input
-                defaultValue={initialData?.engine || ""}
+                defaultValue={initialData?.engine || ''}
                 name="engine"
                 placeholder="1500cc VVT-i Hybrid"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -98,11 +79,9 @@ export default function AddCarModal({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                CC
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">CC</label>
               <input
-                defaultValue={initialData?.cc || ""}
+                defaultValue={initialData?.cc || ''}
                 name="cc"
                 placeholder="1500cc"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -110,22 +89,18 @@ export default function AddCarModal({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Color
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Color</label>
               <input
-                defaultValue={initialData?.color || ""}
+                defaultValue={initialData?.color || ''}
                 name="color"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Mileage
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Mileage</label>
               <input
-                defaultValue={initialData?.mileage || ""}
+                defaultValue={initialData?.mileage || ''}
                 name="mileage"
                 placeholder="22,000 km"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -133,99 +108,81 @@ export default function AddCarModal({
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Fuel Type
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Fuel Type</label>
               <input
-                defaultValue={initialData?.fuel || ""}
+                defaultValue={initialData?.fuel || ''}
                 name="fuel"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Transmission
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Transmission</label>
               <input
-                defaultValue={initialData?.transmission || ""}
+                defaultValue={initialData?.transmission || ''}
                 name="transmission"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Model Year
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Model Year</label>
               <input
-                defaultValue={initialData?.modelYear || ""}
+                defaultValue={initialData?.modelYear || ''}
                 name="modelYear"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Chassis No
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Chassis No</label>
               <input
-                defaultValue={initialData?.chassisNo || ""}
+                defaultValue={initialData?.chassisNo || ''}
                 name="chassisNo"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Model Code
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Model Code</label>
               <input
-                defaultValue={initialData?.modelCode || ""}
+                defaultValue={initialData?.modelCode || ''}
                 name="modelCode"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Package
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Package</label>
               <input
-                defaultValue={initialData?.package || ""}
+                defaultValue={initialData?.package || ''}
                 name="package"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                AU Grade
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">AU Grade</label>
               <input
-                defaultValue={initialData?.au_grade || ""}
+                defaultValue={initialData?.au_grade || ''}
                 name="au_grade"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Seats
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Seats</label>
               <input
-                defaultValue={initialData?.seats || ""}
+                defaultValue={initialData?.seats || ''}
                 name="seats"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               />
             </div>
 
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Safety System
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Safety System</label>
               <input
-                defaultValue={initialData?.s_system || ""}
+                defaultValue={initialData?.s_system || ''}
                 name="s_system"
                 placeholder="Safety Sense"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -234,11 +191,9 @@ export default function AddCarModal({
 
             {/* Relations */}
             <div className="flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Select Brand
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Select Brand</label>
               <select
-                defaultValue={initialData?.brand || ""}
+                defaultValue={initialData?.brand || ''}
                 name="brand"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               >
@@ -255,7 +210,7 @@ export default function AddCarModal({
                 Select Category
               </label>
               <select
-                defaultValue={initialData?.category || ""}
+                defaultValue={initialData?.category || ''}
                 name="category"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
               >
@@ -296,11 +251,9 @@ export default function AddCarModal({
             </div>
 
             <div className="md:col-span-3 flex flex-col gap-2">
-              <label className="text-[10px] uppercase font-bold text-gray-500">
-                Description
-              </label>
+              <label className="text-[10px] uppercase font-bold text-gray-500">Description</label>
               <textarea
-                defaultValue={initialData?.description || ""}
+                defaultValue={initialData?.description || ''}
                 name="description"
                 rows="3"
                 className="bg-white/5 border border-white/10 p-3 rounded-xl focus:border-red-600 outline-none"
@@ -311,7 +264,7 @@ export default function AddCarModal({
               type="submit"
               className="md:col-span-3 bg-red-600 text-white p-4 rounded-xl font-black uppercase tracking-widest hover:bg-red-700 transition-all active:scale-95 mt-4"
             >
-              {isEditMode ? "Update Inventory" : "Save Inventory"}
+              {isEditMode ? 'Update Inventory' : 'Save Inventory'}
             </button>
           </form>
         </div>

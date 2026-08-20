@@ -62,50 +62,42 @@
 //     </>
 //   );
 // }
-"use client";
-import { loginnn } from "@/app/loginAction/loginAction";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useState } from "react";
+'use client';
+import { loginnn } from '@/app/loginAction/loginAction';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useState } from 'react';
 
 export default function Login() {
   const router = useRouter();
   const searchParams = useSearchParams();
-  const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false); // 1. Loading state add kora hoyeche
-
-  // 2. URL theke callbackUrl dhora (Jodi na thake tobe "/admin" default)
-  const callbackUrl = searchParams.get("callbackUrl") || "/admin";
+  const [error, setError] = useState('');
+  const [loading, setLoading] = useState(false);
+  const callbackUrl = searchParams.get('callbackUrl') || '/admin';
 
   async function onSubmit(event) {
     event.preventDefault();
-    setLoading(true); // Login shuru hole button disable hobe
-    setError(""); // Purono error muche fela
+    setLoading(true);
+    setError('');
 
     try {
       const formData = new FormData(event.currentTarget);
       const response = await loginnn(formData, callbackUrl);
 
-      // 3. Logic: response.error thakle seta set korbo
       if (response?.error) {
         setError(response.error);
-      }
-      // 4. Logic: Success hole callbackUrl-e pathabo (Dynamic Redirect)
-      else if (response?.success) {
-        // router.push bebohar kora bhalo kintu sersion refresh korar jonno
-        // window.location ba router.refresh() use kora secure
+      } else if (response?.success) {
         router.push(response.redirectTo || callbackUrl);
         router.refresh();
       }
     } catch (err) {
-      setError(" সমস্যা হয়েছে। আবার চেষ্টা করুন।");
+      setError(' সমস্যা হয়েছে। আবার চেষ্টা করুন।');
     } finally {
-      setLoading(false); // Kaj shesh hole button abar active hobe
+      setLoading(false);
     }
   }
 
   return (
     <div className="max-w-md mx-auto p-4">
-      {/* 5. Error message ke arektu sundor bhabe dekhano */}
       {error && (
         <div className="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative mb-4 text-center">
           {error}
@@ -120,7 +112,7 @@ export default function Login() {
             type="email"
             name="email"
             id="email"
-            required // Basic validation
+            required
           />
         </div>
 
@@ -131,20 +123,18 @@ export default function Login() {
             type="password"
             name="password"
             id="password"
-            required // Basic validation
+            required
           />
         </div>
 
         <button
           type="submit"
-          disabled={loading} // 6. Loading thakle click bondho
+          disabled={loading}
           className={`bg-green-500 px-8 py-2 rounded-md block text-white font-bold shadow-lg transition-all w-full mt-4 ${
-            loading
-              ? "opacity-50 cursor-not-allowed"
-              : "hover:shadow-green-500/50 active:scale-95"
+            loading ? 'opacity-50 cursor-not-allowed' : 'hover:shadow-green-500/50 active:scale-95'
           }`}
         >
-          {loading ? "Processing..." : "Login"}
+          {loading ? 'Processing...' : 'Login'}
         </button>
       </form>
     </div>

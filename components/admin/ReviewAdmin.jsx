@@ -1,22 +1,15 @@
-"use client";
-import { deleteReviewCar } from "@/app/(home)/action/actions";
-import Image from "next/image";
-import { useState } from "react";
-import {
-  FaPenToSquare,
-  FaPlus,
-  FaQuoteLeft,
-  FaStar,
-  FaTrash,
-  FaUserGroup,
-} from "react-icons/fa6";
-import AddReview from "./ReviewAddModel";
+'use client';
+import { deleteReviewCar } from '@/app/(home)/action/actions';
+import Image from 'next/image';
+import { useState } from 'react';
+import { FaPenToSquare, FaPlus, FaQuoteLeft, FaStar, FaTrash, FaUserGroup } from 'react-icons/fa6';
+import AddReview from './ReviewAddModel';
 const AdminReviewManager = ({ reviews }) => {
   const [showModal, setShowModal] = useState(false);
-  const fullDate = new Date(reviews?.createdAt).toLocaleDateString("bn-BD", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
+  const fullDate = new Date(reviews.createdAt).toLocaleDateString('bn-BD', {
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric',
   });
   // ডামি ডাটা
 
@@ -66,12 +59,9 @@ const AdminReviewManager = ({ reviews }) => {
             </thead>
             <tbody className="divide-y divide-white/5">
               {reviews?.map((review, index) => (
-                <tr
-                  key={review._id}
-                  className="hover:bg-white/[0.02] transition-colors group"
-                >
+                <tr key={review._id} className="hover:bg-white/[0.02] transition-colors group">
                   <td className="px-8 py-6 font-bold text-gray-700 text-xs">
-                    {String(index + 1).padStart(2, "0")}
+                    {String(index + 1).padStart(2, '0')}
                   </td>
 
                   <td className="px-8 py-6">
@@ -90,8 +80,7 @@ const AdminReviewManager = ({ reviews }) => {
                           {review.customerName}
                         </span>
                         <span className="text-[9px] text-gray-600 font-black uppercase tracking-widest flex items-center gap-1">
-                          <FaQuoteLeft size={8} className="text-red-600" />{" "}
-                          Verified Buyer
+                          <FaQuoteLeft size={8} className="text-red-600" /> Verified Buyer
                         </span>
                       </div>
                     </div>
@@ -109,9 +98,7 @@ const AdminReviewManager = ({ reviews }) => {
                         <FaStar
                           key={i}
                           size={10}
-                          className={
-                            i < review.rating ? "text-red-600" : "text-white/5"
-                          }
+                          className={i < review.rating ? 'text-red-600' : 'text-white/5'}
                         />
                       ))}
                     </div>
