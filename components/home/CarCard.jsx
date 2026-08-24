@@ -1,8 +1,8 @@
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { FaGasPump, FaRoad, FaWhatsapp } from "react-icons/fa";
-import { FaGears } from "react-icons/fa6";
+import { motion } from 'framer-motion';
+import Image from 'next/image';
+import Link from 'next/link';
+import { FaGasPump, FaRoad, FaWhatsapp } from 'react-icons/fa';
+import { FaGears } from 'react-icons/fa6';
 
 export default function CarCard({ car }) {
   return (
@@ -25,19 +25,15 @@ export default function CarCard({ car }) {
             className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
           />
           <div className="absolute top-4 left-4 bg-red-600 text-[10px] font-black px-3 py-1 uppercase tracking-widest rounded-md shadow-lg">
-            {car.tag || "Available"}
+            {car.tag || 'Available'}
           </div>
         </div>
 
         {/* Details */}
         <div className="p-6">
           <div className="flex justify-between items-start mb-4">
-            <h4 className="text-xl font-bold uppercase tracking-tight">
-              {car.name}
-            </h4>
-            <span className="text-red-500 font-black text-lg">
-              ৳{car.price}
-            </span>
+            <h4 className="text-xl font-bold uppercase tracking-tight">{car.name}</h4>
+            <span className="text-red-500 font-black text-lg">৳{car.price}</span>
           </div>
 
           {/* Specs Icons */}
@@ -45,20 +41,16 @@ export default function CarCard({ car }) {
             <div className="flex flex-col items-center gap-1">
               <FaGears className="text-gray-500 text-xs" />
               <span className="text-[10px] uppercase text-gray-400 font-bold">
-                {car.chassisNo?.slice(0, 6) || "N/A"}
+                {car.chassisNo?.slice(0, 6) || 'N/A'}
               </span>
             </div>
             <div className="flex flex-col items-center gap-1 border-x border-white/5 px-8">
               <FaGasPump className="text-gray-500 text-xs" />
-              <span className="text-[10px] uppercase text-gray-400 font-bold">
-                {car.fuel}
-              </span>
+              <span className="text-[10px] uppercase text-gray-400 font-bold">{car.fuel}</span>
             </div>
             <div className="flex flex-col items-center gap-1">
               <FaRoad className="text-gray-500 text-xs" />
-              <span className="text-[10px] uppercase text-gray-400 font-bold">
-                {car.mileage}
-              </span>
+              <span className="text-[10px] uppercase text-gray-400 font-bold">{car.mileage}</span>
             </div>
           </div>
 
@@ -71,7 +63,7 @@ export default function CarCard({ car }) {
               Details
             </Link>
             <Link
-              href={`https://wa.me/8801944755111?text=I'm interested in ${car.name}`}
+              href={`https://wa.me/8801944755111?text= Hello  ${car?.name || 'a car'}   I am interested in booking . Please give me more details.`}
               target="_blank"
               rel="noopener noreferrer"
               className="bg-[#25D366] p-3 rounded-xl hover:scale-105 transition-all"

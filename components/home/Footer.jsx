@@ -1,5 +1,5 @@
-"use client";
-import Link from "next/link";
+'use client';
+import Link from 'next/link';
 import {
   FaEnvelope,
   FaFacebookF,
@@ -8,7 +8,7 @@ import {
   FaPhoneVolume,
   FaWhatsapp,
   FaYoutube,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -24,20 +24,14 @@ const Footer = () => {
               <span className="text-red-600">AUTOMOBILE</span>
             </h2>
             <p className="text-gray-500 text-sm leading-relaxed">
-              Your trusted partner for premium Japanese reconditioned and new
-              cars in Rajshahi, Bangladesh. Excellence in every drive.
+              Your trusted partner for premium Japanese reconditioned and new cars in Rajshahi,
+              Bangladesh. Excellence in every drive.
             </p>
             <div className="flex gap-4">
               <SocialIcon icon={<FaFacebookF />} href="https://facebook.com" />
               <SocialIcon icon={<FaInstagram />} href="https://instagram.com" />
-              <SocialIcon
-                icon={<FaYoutube />}
-                href="https://youtube.com/@mdrominchowdhury"
-              />
-              <SocialIcon
-                icon={<FaWhatsapp />}
-                href="https://wa.me/8801944755111"
-              />
+              <SocialIcon icon={<FaYoutube />} href="https://youtube.com/@mdrominchowdhury" />
+              <SocialIcon icon={<FaWhatsapp />} href="https://wa.me/8801944755111" />
             </div>
           </div>
 
@@ -53,26 +47,17 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/#inventory"
-                  className="hover:text-red-600 transition-colors"
-                >
+                <Link href="/#inventory" className="hover:text-red-600 transition-colors">
                   All Inventory
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/about"
-                  className="hover:text-red-600 transition-colors"
-                >
+                <Link href="/about" className="hover:text-red-600 transition-colors">
                   About Us
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/contact"
-                  className="hover:text-red-600 transition-colors"
-                >
+                <Link href="/contact" className="hover:text-red-600 transition-colors">
                   Contact Us
                 </Link>
               </li>
@@ -88,33 +73,27 @@ const Footer = () => {
               {/* Query Params অনুযায়ী লিঙ্ক আপডেট করা হয়েছে */}
               <li>
                 <Link
-                  href="/?category=SUV"
+                  href="/?category=SUV#inventory"
                   className="hover:text-red-600 transition-colors"
                 >
                   Luxury SUV
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/?category=Sedan"
-                  className="hover:text-red-600 transition-colors"
-                >
+                <Link href="/?category=Sedan" className="hover:text-red-600 transition-colors">
                   Premium Sedan
                 </Link>
               </li>
               <li>
                 <Link
-                  href="/?category=Hatchback"
+                  href="/?category=Hatchback#inventory"
                   className="hover:text-red-600 transition-colors"
                 >
                   Hatchback
                 </Link>
               </li>
               <li>
-                <Link
-                  href="/?category=Small Car"
-                  className="hover:text-red-600 transition-colors"
-                >
+                <Link href="/?category=Small Car" className="hover:text-red-600 transition-colors">
                   Small Cars
                 </Link>
               </li>
@@ -129,9 +108,7 @@ const Footer = () => {
             <ul className="flex flex-col gap-5">
               <li className="flex items-start gap-4 group">
                 <FaLocationDot className="text-red-600 mt-1 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-500 text-sm">
-                  Terikhadiya, Rajpara, Rajshahi
-                </span>
+                <span className="text-gray-500 text-sm">Terikhadiya, Rajpara, Rajshahi</span>
               </li>
               <li className="flex items-center gap-4 group">
                 <FaPhoneVolume className="text-red-600 group-hover:scale-110 transition-transform" />
@@ -139,9 +116,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center gap-4 group">
                 <FaEnvelope className="text-red-600 group-hover:scale-110 transition-transform" />
-                <span className="text-gray-500 text-sm">
-                  info@mariamauto.com
-                </span>
+                <span className="text-gray-500 text-sm">info@mariamauto.com</span>
               </li>
             </ul>
           </div>
@@ -153,10 +128,7 @@ const Footer = () => {
             © {currentYear} MARIAM AUTO. ALL RIGHTS RESERVED.
           </p>
           <div className="flex gap-8 text-[10px] uppercase font-bold tracking-widest text-gray-600">
-            <Link
-              href="/privacy"
-              className="hover:text-white transition-colors"
-            >
+            <Link href="/privacy" className="hover:text-white transition-colors">
               Privacy Policy
             </Link>
             <Link href="/terms" className="hover:text-white transition-colors">

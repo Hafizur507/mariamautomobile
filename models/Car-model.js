@@ -1,10 +1,10 @@
-import mongoose from "mongoose";
+import mongoose from 'mongoose';
 
 const CarSchema = new mongoose.Schema(
   {
     name: { type: String, required: true },
-    price: { type: String, required: true },
-    mainImage: { type: String, required: true },
+    price: { type: Number, required: true },
+    mainImage: { type: String },
     gallery: [{ type: String }],
 
     buyingPrice: { type: Number, default: 0 },
@@ -13,6 +13,7 @@ const CarSchema = new mongoose.Schema(
     soldAt: { type: Date, default: null },
 
     // স্পেসিফিকেশন
+    status: { type: String, default: 'unsold' },
     engine: { type: String },
     color: { type: String },
     mileage: { type: String },
@@ -26,7 +27,7 @@ const CarSchema = new mongoose.Schema(
     transmission: { type: String },
     tag: { type: String },
     au_grade: { type: String },
-    year: { type: String },
+    year: { type: Number },
     description: { type: String },
     s_system: { type: String },
     package: { type: String },
@@ -35,16 +36,16 @@ const CarSchema = new mongoose.Schema(
     // রিলেশনাল ফিল্ডস
     brand: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Brand",
+      ref: 'Brand',
       required: true,
     },
     category: {
       type: mongoose.Schema.Types.ObjectId,
-      ref: "Category",
+      ref: 'Category',
       required: true,
     },
   },
   { timestamps: true }
 );
 
-export default mongoose.models.Car || mongoose.model("Car", CarSchema);
+export default mongoose.models.Car || mongoose.model('Car', CarSchema);

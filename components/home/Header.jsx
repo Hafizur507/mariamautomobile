@@ -1,8 +1,8 @@
-"use client";
-import Link from "next/link";
-import { useEffect, useState } from "react";
-import { HiChevronDown, HiMenuAlt3, HiX } from "react-icons/hi";
-
+'use client';
+import Image from 'next/image';
+import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import { HiChevronDown, HiMenuAlt3, HiX } from 'react-icons/hi';
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -13,59 +13,57 @@ const Header = () => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    return () => window.removeEventListener("scroll", handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   // Prevent background scrolling when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
-      document.body.style.overflow = "hidden";
+      document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = "auto";
+      document.body.style.overflow = 'auto';
     }
   }, [isMobileMenuOpen]);
 
   const menuItems = [
-    { name: "About", href: "/about" },
+    { name: 'About', href: '/about' },
     {
-      name: "Brands",
-      key: "brand",
-      dropdown: ["Toyota", "Honda", "Nissan", "Mitsubishi", "Mazda"],
+      name: 'Brands',
+      key: 'brand',
+      dropdown: ['Toyota', 'Honda', 'Nissan', 'Mitsubishi', 'Mazda'],
     },
     {
-      name: "Category",
-      key: "category",
-      dropdown: ["SUV", "Sedan", "Hatchback", "Hybrid", "Crossover"],
+      name: 'Category',
+      key: 'category',
+      dropdown: ['SUV', 'Sedan', 'Hatchback', 'Hybrid', 'Crossover'],
     },
-    { name: "Contact", href: "/contact" }, // Corrected case
+    { name: 'Contact', href: '/contact' }, // Corrected case
   ];
 
-  const phoneNumber = "01944755111"; // common variable for consistency
+  const phoneNumber = '01944755111'; // common variable for consistency
 
   return (
     <nav
       className={`fixed w-full z-[100] transition-all duration-500 px-6 ${
         isScrolled
-          ? "bg-black/95 backdrop-blur-md py-3 border-b border-white/10"
-          : "bg-transparent py-6"
+          ? 'bg-black/95 backdrop-blur-md py-3 border-b border-white/10'
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 group">
-          {/* <Image
-            src="/hafiz.png"
+          <Image
+            src="/hafiz.jpeg"
             alt="Logo"
             width={12}
             height={12}
             className="w-12 h-12 rounded-full border border-white/20"
-          /> */}
+          />
           <div className="hidden sm:block">
             <h1 className="text-white font-bold leading-tight">MARIAM</h1>
-            <p className="text-red-500 text-[10px] tracking-widest uppercase">
-              Automobile
-            </p>
+            <p className="text-red-500 text-[10px] tracking-widest uppercase">Automobile</p>
           </div>
         </Link>
 
@@ -131,15 +129,12 @@ const Header = () => {
       {/* Mobile Menu Overlay */}
       <div
         className={`fixed inset-0 bg-black/40 backdrop-blur-lg z-[110] lg:hidden transition-all duration-500 ${
-          isMobileMenuOpen ? "translate-x-0" : "translate-x-full"
+          isMobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
         }`}
       >
         <div className="flex justify-between items-center p-6 border-b border-white/10">
           <span className="text-white font-bold">MENU</span>
-          <button
-            onClick={() => setIsMobileMenuOpen(false)}
-            className="text-red-500"
-          >
+          <button onClick={() => setIsMobileMenuOpen(false)} className="text-red-500">
             <HiX size={36} />
           </button>
         </div>
@@ -151,18 +146,14 @@ const Header = () => {
                 <>
                   <div
                     onClick={() =>
-                      setActiveDropdown(
-                        activeDropdown === item.name ? null : item.name
-                      )
+                      setActiveDropdown(activeDropdown === item.name ? null : item.name)
                     }
                     className="flex justify-between items-center text-xl font-bold text-white uppercase"
                   >
                     {item.name}
                     <HiChevronDown
                       className={`transition-transform duration-300 ${
-                        activeDropdown === item.name
-                          ? "rotate-180 text-red-500"
-                          : ""
+                        activeDropdown === item.name ? 'rotate-180 text-red-500' : ''
                       }`}
                     />
                   </div>

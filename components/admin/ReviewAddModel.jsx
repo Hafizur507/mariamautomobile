@@ -1,5 +1,5 @@
-"use client";
-import { ReviewSubmit } from "@/app/loginAction/loginAction";
+'use client';
+import { ReviewSubmit } from '@/app/loginAction/loginAction';
 import {
   FaCalendarDays,
   FaCarRear,
@@ -10,7 +10,7 @@ import {
   FaStar,
   FaUserPen,
   FaXmark,
-} from "react-icons/fa6";
+} from 'react-icons/fa6';
 const AddReview = ({ onClose }) => {
   return (
     <div className="fixed inset-0 z-[9999] flex items-center justify-center p-4 overflow-hidden">
@@ -114,7 +114,6 @@ const AddReview = ({ onClose }) => {
             </div>
           </div>
 
-          {/* Section 3: Car Image & Rating */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
             <div className="space-y-2">
               <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">
@@ -153,8 +152,7 @@ const AddReview = ({ onClose }) => {
           {/* Description */}
           <div className="space-y-2">
             <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-gray-500 ml-1">
-              <FaMessage className="text-red-600" /> Detailed Review /
-              Description
+              <FaMessage className="text-red-600" /> Detailed Review / Description
             </label>
             <textarea
               rows="4"

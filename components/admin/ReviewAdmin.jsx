@@ -2,7 +2,7 @@
 import { deleteReviewCar } from '@/app/(home)/action/actions';
 import Image from 'next/image';
 import { useState } from 'react';
-import { FaPenToSquare, FaPlus, FaQuoteLeft, FaStar, FaTrash, FaUserGroup } from 'react-icons/fa6';
+import { FaPlus, FaQuoteLeft, FaStar, FaTrash, FaUserGroup } from 'react-icons/fa6';
 import AddReview from './ReviewAddModel';
 const AdminReviewManager = ({ reviews }) => {
   const [showModal, setShowModal] = useState(false);
@@ -11,11 +11,9 @@ const AdminReviewManager = ({ reviews }) => {
     month: 'long',
     day: 'numeric',
   });
-  // ডামি ডাটা
 
   return (
     <div className="max-w-7xl mx-auto mb-20">
-      {/* --- HEADER SECTION --- */}
       {showModal && (
         <AddReview
           onClose={() => {
@@ -117,9 +115,9 @@ const AdminReviewManager = ({ reviews }) => {
 
                   <td className="px-8 py-6 text-right">
                     <div className="flex justify-end gap-3 opacity-20 group-hover:opacity-100 transition-all duration-300">
-                      <button className="p-2 text-gray-500 hover:text-white transition-colors hover:scale-125">
+                      {/* <button className="p-2 text-gray-500 hover:text-white transition-colors hover:scale-125">
                         <FaPenToSquare size={16} />
-                      </button>
+                      </button> */}
                       <button
                         onClick={() => deleteReviewCar(review._id)}
                         className="p-2 text-gray-500 hover:text-red-600 transition-colors hover:scale-125"
